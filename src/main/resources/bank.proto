@@ -1,0 +1,20 @@
+syntax ="proto3";
+option java_package="org.example.stub";
+service BanqueService{
+  rpc convert(ConvertCurrentRequest) returns(ConvertCurrentResponse);
+  rpc getCurrentStream(ConvertCurrentRequest) returns(stream ConvertCurrentResponse);
+  rpc performStream(stream ConvertCurrentRequest) returns(ConvertCurrentResponse);
+  rpc fullStream(stream ConvertCurrentRequest) returns(ConvertCurrentResponse);
+}
+
+message ConvertCurrentRequest{
+  string currentFrom=1;
+  string currentTo=2;
+  double amout=3;
+}
+message ConvertCurrentResponse{
+  string currentFrom=1;
+  string currentTo=2;
+  double amout=3;
+  double result=4;
+}
